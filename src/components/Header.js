@@ -1,11 +1,10 @@
 import React from "react";
-
 import "./Header.css";
 
 const Header = () => {
   return (
     <header>
-      <section className="title">
+      <section className="title" onClick={() => window.location.reload()}>
         <span>Rock</span>
         <span>Paper</span>
         <span>Scissors</span>
