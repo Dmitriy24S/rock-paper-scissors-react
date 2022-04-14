@@ -1,11 +1,12 @@
 .game-result-container {
   margin-top: 4rem;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   gap: 1rem;
   position: relative;
   text-transform: uppercase;
+  min-height: 24rem;
 }
 
 .game-result-container .icon-container {
@@ -18,8 +19,24 @@
   margin: 0 auto;
 }
 
+.player-container,
+.computer-container {
+  min-width: 9rem;
+}
+
 .picked-choice-text {
   font-weight: 500;
+}
+
+.counter {
+  height: 7rem;
+  width: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0 auto;
 }
 
 .result {
@@ -29,7 +46,8 @@
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
-  top: 100%;
+  /* top: 100%; */
+  top: 10rem;
   margin-top: 2rem;
   font-weight: 700;
   font-size: 3.7rem;
@@ -51,6 +69,6 @@
 
 @media (hover) {
   .play-again-btn:hover {
-    opacity: 0.9;
+    color: red;
   }
 }

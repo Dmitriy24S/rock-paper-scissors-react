@@ -3,7 +3,8 @@
   margin-top: 7rem;
   position: relative;
   max-width: 17rem;
-  min-width: 16rem;
+  /* min-width: 16rem; */
+  min-width: 17rem;
   background-image: url(../images/bg-triangle.svg);
   background-position: top;
   background-repeat: no-repeat;
@@ -21,6 +22,7 @@
   border-radius: 50%;
   border: 18px solid;
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .rock-icon-container {

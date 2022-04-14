@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ gameScore }) => {
   return (
     <header>
       <section className="title" onClick={() => window.location.reload()}>
@@ -11,7 +11,7 @@ const Header = () => {
       </section>
       <section className="score-container">
         <span className="score-title">Score</span>
-        <div className="score-number">12</div>
+        <div className="score-number">{gameScore}</div>
       </section>
     </header>
   );

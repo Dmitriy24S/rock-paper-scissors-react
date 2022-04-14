@@ -7,16 +7,18 @@ import Play from "./components/Play";
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [userChoice, setUserChoice] = useState("");
+  const [gameScore, setGameScore] = useState(0);
 
   return (
     <div className="App">
-      <Header />
+      <Header gameScore={gameScore} />
 
       {gameStarted ? (
         <Play
           userChoice={userChoice}
           setUserChoice={setUserChoice}
           setGameStarted={setGameStarted}
+          setGameScore={setGameScore}
         />
       ) : (
         <Game

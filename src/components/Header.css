@@ -27,9 +27,10 @@ header {
   border-radius: 7px;
   background-color: #fff;
   color: hsl(229, 64%, 46%);
-  padding: 0.2rem 1rem;
+  padding: 0.5rem 1rem;
   font-weight: 700;
   line-height: 1;
+  min-width: 4rem;
 }
 
 .score-title {
@@ -39,5 +40,5 @@ header {
 
 .score-number {
   color: hsl(229, 25%, 31%);
-  font-size: 3.5rem;
+  font-size: 2.5rem;
 }

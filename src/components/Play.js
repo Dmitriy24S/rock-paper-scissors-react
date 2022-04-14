@@ -5,48 +5,62 @@ import rockIcon from "../images/icon-rock.svg";
 import paperIcon from "../images/icon-paper.svg";
 import scissorsIcon from "../images/icon-scissors.svg";
 
-const Play = ({ userChoice, setGameStarted }) => {
+const Play = ({ userChoice, setGameStarted, setGameScore }) => {
   const [computerChoice, setComputerChoice] = useState();
   const [userWin, setUserWin] = useState();
-  let choices = ["rock", "paper", "scissors"];
+  const [counter, setCounter] = useState(2);
+  const choices = ["rock", "paper", "scissors"];
 
-  const computerPlay = () => {
-    let computerAnswer = choices[Math.floor(Math.random() * choices.length)];
-    setComputerChoice(computerAnswer);
+  // Random house choice func
+  const newHousePick = () => {
+    let randomHousePick = choices[Math.floor(Math.random() * choices.length)];
+    setComputerChoice(randomHousePick);
   };
 
+  // Random house choice on load
+  useEffect(() => {
+    newHousePick();
+  }, []);
+
+  // Game result func
   const gameResultCalculation = () => {
     console.log("user choose " + userChoice, "|| computer choose " + computerChoice);
 
-    if (computerChoice) {
+    if (computerChoice !== "undefined" && computerChoice !== undefined) {
       if (userChoice === "rock" && computerChoice === "paper") {
         setUserWin("win");
         console.log("user win");
+        setGameScore((score) => score + 1);
         return;
       }
       if (userChoice === "rock" && computerChoice === "scissors") {
         setUserWin("lose");
         console.log("user lost");
+        setGameScore((score) => score - 1);
         return;
       }
       if (userChoice === "paper" && computerChoice === "scissors") {
         setUserWin("lose");
         console.log("user lost");
+        setGameScore((score) => score - 1);
         return;
       }
       if (userChoice === "paper" && computerChoice === "rock") {
         setUserWin("win");
         console.log("user win");
+        setGameScore((score) => score + 1);
         return;
       }
       if (userChoice === "scissors" && computerChoice === "rock") {
         setUserWin("lose");
         console.log("user lost");
+        setGameScore((score) => score - 1);
         return;
       }
       if (userChoice === "scissors" && computerChoice === "paper") {
         setUserWin("win");
         console.log("user win");
+        setGameScore((score) => score + 1);
         return;
       } else {
         setUserWin("draw");
@@ -55,40 +69,45 @@ const Play = ({ userChoice, setGameStarted }) => {
     }
   };
 
+  // 3 sec timer to show computer/house choice
   useEffect(() => {
-    computerPlay();
-    if (computerChoice !== "undefined" && computerChoice !== undefined) {
-      if (userChoice !== "" || userChoice !== undefined || userChoice !== "undefined") {
-        gameResultCalculation();
-      }
-    }
-  }, [computerChoice]);
+    const timer =
+      counter > 0
+        ? setInterval(() => {
+            setCounter(counter - 1);
+          }, 1000)
+        : gameResultCalculation();
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [counter, computerChoice]);
 
   return (
     <section className="game-result-container">
-      <div class="player-container">
-        <div className="player-container2">
-          <div className={`icon-container ${userChoice}-icon-container`}>
-            <img
-              src={
-                userChoice === "paper" ? paperIcon : userChoice === "rock" ? rockIcon : scissorsIcon
-              }
-              alt={`${userChoice}`}
-            />
-          </div>
+      <section className="player-container">
+        <div className={`icon-container ${userChoice}-icon-container`}>
+          <img
+            src={
+              userChoice === "paper" ? paperIcon : userChoice === "rock" ? rockIcon : scissorsIcon
+            }
+            alt={`${userChoice}`}
+          />
         </div>
         <p className="picked-choice-text"> You picked {userChoice}</p>
-      </div>
-      <div className="result">
+      </section>
+      <section className="result">
         {userWin === "win" && "You win"}
         {userWin === "lose" && "You lost"}
         {userWin === "draw" && "Draw"}
-        <button class="play-again-btn" onClick={() => setGameStarted(false)}>
-          Play again
-        </button>
-      </div>
-      <div className="computer-container">
-        <div className="computer-container2">
+        {counter === 0 && (
+          <button className="play-again-btn" onClick={() => setGameStarted(false)}>
+            Play again
+          </button>
+        )}
+      </section>
+      <section className="computer-container">
+        {counter === 0 ? (
           <div className={`icon-container ${computerChoice}-icon-container`}>
             <img
               src={
@@ -101,9 +120,11 @@ const Play = ({ userChoice, setGameStarted }) => {
               alt={`${computerChoice}`}
             />
           </div>
-        </div>
-        <p className="picked-choice-text">House picked {computerChoice}</p>
-      </div>
+        ) : (
+          <div className="counter">{counter}</div>
+        )}
+        <p className="picked-choice-text">House picked {counter === 0 ? computerChoice : "???"}</p>
+      </section>
     </section>
   );
 };
