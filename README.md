@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+# Rock, Paper, Scissors game
+
+![Design preview for the Rock, Paper, Scissors game](./design/desktop-preview.jpg)
+
+## Welcome 
+
+Rock, Paper, Scissors game. Created with React & CSS.
+
+[Live Demo](https://dmitriy24s.github.io/rock-paper-scissors-react/) 👈
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
