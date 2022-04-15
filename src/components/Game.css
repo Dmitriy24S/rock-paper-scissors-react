@@ -1,10 +1,9 @@
 .game-start-container {
-  min-height: 11rem;
-  margin-top: 7rem;
   position: relative;
+  margin-top: 7rem;
+  min-height: 11rem;
+  min-width: 18rem;
   max-width: 17rem;
-  /* min-width: 16rem; */
-  min-width: 17rem;
   background-image: url(../images/bg-triangle.svg);
   background-position: top;
   background-repeat: no-repeat;

@@ -1,12 +1,11 @@
 .game-result-container {
   margin-top: 4rem;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   gap: 1rem;
   position: relative;
   text-transform: uppercase;
-  min-height: 24rem;
+  min-height: 23rem;
 }
 
 .game-result-container .icon-container {
@@ -21,11 +20,27 @@
 
 .player-container,
 .computer-container {
-  min-width: 9rem;
+  min-width: 10rem;
 }
 
 .picked-choice-text {
   font-weight: 500;
+}
+
+.winner-rock {
+  box-shadow: inset 0 5px 6px grey, 0px 8px hsl(0deg 87% 35%),
+    0 0 0 50px hsl(0deg 0% 100% / 7%), 0 0 0 100px hsl(0deg 0% 100% / 5%),
+    0 0 0 150px hsl(0deg 0% 100% / 3%);
+}
+.winner-paper {
+  box-shadow: inset 0 5px 6px grey, 0px 8px hsl(227deg 77% 44%),
+    0 0 0 50px hsl(0deg 0% 100% / 7%), 0 0 0 100px hsl(0deg 0% 100% / 5%),
+    0 0 0 150px hsl(0deg 0% 100% / 3%);
+}
+.winner-scissors {
+  box-shadow: inset 0 5px 6px grey, 0 8px #a46e0a,
+    0 0 0 50px hsl(0deg 0% 100% / 7%), 0 0 0 100px hsl(0deg 0% 100% / 5%),
+    0 0 0 150px hsl(0deg 0% 100% / 3%);
 }
 
 .counter {
@@ -37,31 +52,31 @@
   font-weight: 600;
   font-size: 1.3rem;
   margin: 0 auto;
+  border-radius: 50%;
+  background-color: hsl(230, 36%, 20%);
 }
 
 .result {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
-  /* top: 100%; */
   top: 10rem;
   margin-top: 2rem;
   font-weight: 700;
   font-size: 3.7rem;
   letter-spacing: 1px;
   width: 100%;
-  align-items: center;
+  min-height: 10rem;
 }
 
 .play-again-btn {
   padding: 0.6rem 1rem;
   border-radius: 8px;
   font-size: 1.5rem;
-  font-family: inherit;
-  text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 0.3px;
   min-width: 13rem;
