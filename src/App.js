@@ -3,7 +3,7 @@ import "./App.css";
 import Game from "./components/Game";
 import Header from "./components/Header";
 import Play from "./components/Play";
-// import Rules from "./components/Rules";
+import Rules from "./components/Rules";
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -28,7 +28,7 @@ function App() {
           userChoice={userChoice}
         />
       )}
-      {/* <Rules /> */}
+      <Rules />
     </div>
   );
 }
