@@ -12,19 +12,27 @@ const Game = ({ setGameStarted, userChoice, setUserChoice }) => {
 
   return (
     <section className="game-start-container">
-      <div data-id="rock" className="icon-container rock-icon-container" onClick={setChoice}>
+      <button
+        data-id="rock"
+        className="icon-container rock-icon-container"
+        onClick={setChoice}
+      >
         <img src={rockIcon} alt="rock" data-id="rock" />
-      </div>
-      <div data-id="paper" className="icon-container paper-icon-container" onClick={setChoice}>
+      </button>
+      <button
+        data-id="paper"
+        className="icon-container paper-icon-container"
+        onClick={setChoice}
+      >
         <img src={paperIcon} alt="paper" data-id="paper" />
-      </div>
-      <div
+      </button>
+      <button
         data-id="scissors"
         className="icon-container scissors-icon-container"
         onClick={setChoice}
       >
         <img src={scissorsIcon} alt="scissors" data-id="scissors" />
-      </div>
+      </button>
     </section>
   );
 };
