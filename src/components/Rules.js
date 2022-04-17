@@ -12,7 +12,7 @@ const Rules = () => {
       >
         Rules
       </button>
-      {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
+      <Modal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
     </>
   );
 };
