@@ -9,6 +9,7 @@ import "./Modal.css";
 
 const Modal = ({ setIsModalOpen, isModalOpen }) => {
   const nodeRef = useRef(null);
+  const nodeRef2 = useRef(null);
 
   useEffect(() => {
     const closeOnEscapeKey = (e) =>
@@ -20,31 +21,42 @@ const Modal = ({ setIsModalOpen, isModalOpen }) => {
   }, [setIsModalOpen]);
 
   return createPortal(
-    <CSSTransition
-      in={isModalOpen}
-      timeout={{ entry: 0, exit: 300 }}
-      unmountOnExit
-      classNames="modal"
-      nodeRef={nodeRef}
-    >
-      <section className="modal" ref={nodeRef}>
+    <>
+      <CSSTransition
+        in={isModalOpen}
+        timeout={{ entry: 0, exit: 300 }}
+        unmountOnExit
+        nodeRef={nodeRef2}
+        classNames="modal-backdrop"
+      >
         <div
           className="modal-backdrop"
           onClick={() => setIsModalOpen(false)}
+          ref={nodeRef2}
         ></div>
-        <section className="rules-modal">
-          <div className="rules-header">
-            <h2>Rules</h2>
-            <button onClick={() => setIsModalOpen(false)}>
-              <img src={closeIcon} alt="close modal" />
-            </button>
-          </div>
-          <div className="rules-content">
-            <img src={rulesImage} alt="rules" />
-          </div>
+      </CSSTransition>
+      <CSSTransition
+        in={isModalOpen}
+        timeout={{ entry: 0, exit: 300 }}
+        unmountOnExit
+        classNames="modal"
+        nodeRef={nodeRef}
+      >
+        <section className="modal" ref={nodeRef}>
+          <section className="rules-modal">
+            <div className="rules-header">
+              <h2>Rules</h2>
+              <button onClick={() => setIsModalOpen(false)}>
+                <img src={closeIcon} alt="close modal" />
+              </button>
+            </div>
+            <div className="rules-content">
+              <img src={rulesImage} alt="rules" />
+            </div>
+          </section>
         </section>
-      </section>
-    </CSSTransition>,
+      </CSSTransition>
+    </>,
     document.getElementById("modal")
   );
 };
