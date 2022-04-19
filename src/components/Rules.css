@@ -11,11 +11,18 @@
   letter-spacing: 2.5px;
   font-size: 1.1rem;
   font-weight: 500;
+  transition: left 250ms ease-in-out;
 }
 
 @media (hover) {
   .rules-btn:hover {
     color: #131727;
     background-color: rgb(243, 243, 243);
+  }
+}
+
+@media (min-width: 768px) {
+  .rules-btn {
+    left: 90%;
   }
 }
